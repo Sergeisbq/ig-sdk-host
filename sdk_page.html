@@ -5,7 +5,7 @@
   <title>IG Web SDK</title>
 </head>
 <body>
-    <script src="https://sdk-facescan.insightgenie.ai/"></script>
+    <script src="ig-web-sdk.js"></script>
   <div id="provided-container-id"></div>
   <script>
     window.startSDK = function (configJson) {
@@ -33,6 +33,15 @@
       console.warn("JS bridge not ready");
     }
   }
+      window.addEventListener("load", () => {
+      window.startSDK({
+        videoToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnN0aXR1dGlvbklkIjoiNjc1ZWI5NmY1YjE0ZjAwOWFlMWQyYjBjIiwiaWF0IjoxNzUxODk0MzQzLCJleHAiOjE3NTE4OTcwNDN9.qJVF3hX9lWm6NDpwqcHlIlGchTWTFBMpi_EWO-ap7KQ",
+        age: 30,
+        gender: "male",
+        buttonBgColor: "2e8ece",
+        buttonTextColor: "ffffff"
+      });
+    });
 
   // Example usage after page load:
   window.addEventListener("load", () => {
