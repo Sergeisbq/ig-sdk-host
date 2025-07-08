@@ -10,16 +10,16 @@
 
   <div id="provided-container-id"></div>
   <script>
-    // function sendMessageToFlutter(data) {
-    //   if (
-    //     window.flutter_inappwebview &&
-    //     typeof window.flutter_inappwebview.callHandler === "function"
-    //   ) {
-    //     window.flutter_inappwebview.callHandler("flutter_inappwebview", data);
-    //   } else {
-    //     console.warn("JS bridge not ready");
-    //   }
-    // }
+    function sendMessageToFlutter(data) {
+      if (
+        window.flutter_inappwebview &&
+        typeof window.flutter_inappwebview.callHandler === "function"
+      ) {
+        window.flutter_inappwebview.callHandler("flutter_inappwebview", data);
+      } else {
+        console.warn("JS bridge not ready");
+      }
+    }
 
     window.startSDK = function (configJson) {
       // const config = configJson;
