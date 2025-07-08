@@ -21,8 +21,42 @@
         noDesign: config.noDesign,
         buttonBgColor: config.buttonBgColor || "2e8ece",
         buttonTextColor: config.buttonTextColor || "ffffff",
-        containerId: config.containerId
-
+        containerId: config.containerId,
+        callbacks: {
+          onReady: (data) => {
+            sendMessageToFlutter(JSON.stringify({ event: "onReady", data }));
+          },
+          onAnalysisStart: (data) => {
+            sendMessageToFlutter(JSON.stringify({ event: "onAnalysisStart", data }));
+          },
+          onHealthAnalysisFinished: (data) => {
+            sendMessageToFlutter(JSON.stringify({ event: "onHealthAnalysisFinished", data }));
+          },
+          onFailedToGetHealthAnalysisResults: (data) => {
+            sendMessageToFlutter(JSON.stringify({ event: "onFailedToGetHealthAnalysisResults", data }));
+          },
+          onVoiceAnalysisFinished: (data) => {
+            sendMessageToFlutter(JSON.stringify({ event: "onVoiceAnalysisFinished", data }));
+          },
+          onFailedToGetVoiceAnalysisResults: (data) => {
+            sendMessageToFlutter(JSON.stringify({ event: "onFailedToGetVoiceAnalysisResults", data }));
+          },
+          onFailedToGetResults:(data) => {
+            sendMessageToFlutter(JSON.stringify({ event: "onFailedToGetResults", data }));
+          },
+          videoElementDimensions:(data) => {
+            sendMessageToFlutter(JSON.stringify({ event: "videoElementDimensions", data }));
+          },
+          scanTimeRemaining:(data) => {
+            sendMessageToFlutter(JSON.stringify({ event: "scanTimeRemaining", data }));
+          },
+          conditionStatus: (data) => {
+            sendMessageToFlutter(JSON.stringify({ event: "conditionStatus", data }));
+          },
+          onFailedToLoadPage: (data) => {
+            sendMessageToFlutter(JSON.stringify({ event: "onFailedToLoadPage", data }));
+          },
+        },
       });
     };
   </script>
