@@ -10,29 +10,29 @@
 
   <div id="provided-container-id"></div>
   <script>
-    function sendMessageToFlutter(data) {
-      if (
-        window.flutter_inappwebview &&
-        typeof window.flutter_inappwebview.callHandler === "function"
-      ) {
-        window.flutter_inappwebview.callHandler("flutter_inappwebview", data);
-      } else {
-        console.warn("JS bridge not ready");
-      }
-    }
+    // function sendMessageToFlutter(data) {
+    //   if (
+    //     window.flutter_inappwebview &&
+    //     typeof window.flutter_inappwebview.callHandler === "function"
+    //   ) {
+    //     window.flutter_inappwebview.callHandler("flutter_inappwebview", data);
+    //   } else {
+    //     console.warn("JS bridge not ready");
+    //   }
+    // }
 
     window.startSDK = function (configJson) {
-      const config = configJson;
+      // const config = configJson;
           console.log("Calling IGWebSDK.init");
 
       IGWebSDK.init({
-        videoToken: config.videoToken,
-        age: config.age,
-        gender: config.gender,
-        noDesign: config.noDesign,
-        buttonBgColor: config.buttonBgColor || "2e8ece",
-        buttonTextColor: config.buttonTextColor || "ffffff",
-        containerId: config.containerId,
+        videoToken: configJson.videoToken,
+        age: configJson.age,
+        gender: configJson.gender,
+        noDesign: configJson.noDesign,
+        buttonBgColor: configJson.buttonBgColor || "2e8ece",
+        buttonTextColor: configJson.buttonTextColor || "ffffff",
+        containerId: configJson.containerId,
         callbacks: {
           onReady: (data) => {
             sendMessageToFlutter(JSON.stringify({ event: "onReady", data }));
