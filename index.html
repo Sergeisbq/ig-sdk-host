@@ -2,6 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8" />
+  <base href="./" />
   <title>IG Web SDK</title>
 </head>
 <body>
@@ -35,37 +36,37 @@
         containerId: configJson.containerId,
         callbacks: {
           onReady: (data) => {
-            sendMessageToFlutter(JSON.stringify({ event: "onReady", data }));
+            sendMessageToFlutter({ event: "onReady", data });
           },
           onAnalysisStart: (data) => {
-            sendMessageToFlutter(JSON.stringify({ event: "onAnalysisStart", data }));
+            sendMessageToFlutter({ event: "onAnalysisStart", data });
           },
           onHealthAnalysisFinished: (data) => {
-            sendMessageToFlutter(JSON.stringify({ event: "onHealthAnalysisFinished", data }));
+            sendMessageToFlutter({ event: "onHealthAnalysisFinished", data });
           },
           onFailedToGetHealthAnalysisResults: (data) => {
-            sendMessageToFlutter(JSON.stringify({ event: "onFailedToGetHealthAnalysisResults", data }));
+            sendMessageToFlutter({ event: "onFailedToGetHealthAnalysisResults", data });
           },
           onVoiceAnalysisFinished: (data) => {
-            sendMessageToFlutter(JSON.stringify({ event: "onVoiceAnalysisFinished", data }));
+            sendMessageToFlutter({ event: "onVoiceAnalysisFinished", data });
           },
           onFailedToGetVoiceAnalysisResults: (data) => {
-            sendMessageToFlutter(JSON.stringify({ event: "onFailedToGetVoiceAnalysisResults", data }));
+            sendMessageToFlutter({ event: "onFailedToGetVoiceAnalysisResults", data });
           },
           onFailedToGetResults:(data) => {
-            sendMessageToFlutter(JSON.stringify({ event: "onFailedToGetResults", data }));
+            sendMessageToFlutter({ event: "onFailedToGetResults", data });
           },
           videoElementDimensions:(data) => {
-            sendMessageToFlutter(JSON.stringify({ event: "videoElementDimensions", data }));
+            sendMessageToFlutter({ event: "videoElementDimensions", data });
           },
           scanTimeRemaining:(data) => {
-            sendMessageToFlutter(JSON.stringify({ event: "scanTimeRemaining", data }));
+            sendMessageToFlutter({ event: "scanTimeRemaining", data });
           },
           conditionStatus: (data) => {
-            sendMessageToFlutter(JSON.stringify({ event: "conditionStatus", data }));
+            sendMessageToFlutter({ event: "conditionStatus", data });
           },
           onFailedToLoadPage: (data) => {
-            sendMessageToFlutter(JSON.stringify({ event: "onFailedToLoadPage", data }));
+            sendMessageToFlutter({ event: "onFailedToLoadPage", data });
           },
         },
       });
