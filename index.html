@@ -62,7 +62,7 @@
         // containerId: configJson.containerId,
         callbacks: {
           onReady: (data) => {
-            sendMessageToFlutter({ event: "onReady", data });
+            sendMessageToFlutter({ event: "onReady", {message: "from Sergei html" }});
           },
           onAnalysisStart: (data) => {
             sendMessageToFlutter({ event: "onAnalysisStart", data });
