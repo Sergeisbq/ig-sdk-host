@@ -2,12 +2,11 @@
 <html>
 <head>
   <meta charset="UTF-8" />
-  <base href="./" />
-  <title>IG Web SDK</title>
+  <title>IG Flutter SDK</title>
 </head>
 <body>
-    <!-- <script src="https://sdk-facescan.insightgenie.ai/"></script> -->
-    <script src="./ig-web-sdk.js"></script>
+  <script src="https://sdk-facescan.insightgenie.ai/"></script>
+<!--     <script src="./ig-web-sdk.js"></script> -->
 
   <div id="provided-container-id"></div>
   <script>
@@ -18,22 +17,49 @@
       ) {
         window.flutter_inappwebview.callHandler("flutter_inappwebview", data);
       } else {
-        console.warn("JS bridge not ready");
+        console.warn("Connection is not ready");
       }
     }
 
     window.startSDK = function (configJson) {
-      // const config = configJson;
-          console.log("Calling IGWebSDK.init");
-
       IGWebSDK.init({
         videoToken: configJson.videoToken,
+        containerId: configJson.containerId,
+        clientId: configJson.clientId,
         age: configJson.age,
         gender: configJson.gender,
+        showResults: configJson.showResults,
         noDesign: configJson.noDesign,
-        buttonBgColor: configJson.buttonBgColor || "2e8ece",
-        buttonTextColor: configJson.buttonTextColor || "ffffff",
-        containerId: configJson.containerId,
+        faceOutline: configJson.faceOutline,
+        buttonBgColor: configJson.buttonBgColor,
+        buttonTextColor: configJson.buttonTextColor,
+        isVoiceAnalysisOn: configJson.isVoiceAnalysisOn,
+        voiceAnalysisType: configJson.voiceAnalysisType,
+        forceFrontCamera: configJson.forceFrontCamera,
+        showDisclaimer: configJson.showDisclaimer,
+        height: configJson.height,
+        weight: configJson.weight,
+        smoker: configJson.smoker,
+        hypertension: configJson.hypertension,
+        bpMedication: configJson.bpMedication,
+        diabetic: configJson.diabetic,
+        waistCircumference: configJson.waistCircumference,
+        heartDisease: configJson.heartDisease,
+        depression: configJson.depression,
+        totalCholesterol: configJson.totalCholesterol,
+        hdl: configJson.hdl,
+        parentalHypertension: configJson.parentalHypertension,
+        physicalActivity: configJson.physicalActivity,
+        healthyDiet: configJson.healthyDiet,
+        antiHypertensive: configJson.antiHypertensive,
+        historyBloodGlucose: configJson.historyBloodGlucose,
+        historyFamilyDiabetes: configJson.historyFamilyDiabetes,
+        // age: configJson.age,
+        // gender: configJson.gender,
+        // noDesign: configJson.noDesign,
+        // buttonBgColor: configJson.buttonBgColor || "2e8ece",
+        // buttonTextColor: configJson.buttonTextColor || "ffffff",
+        // containerId: configJson.containerId,
         callbacks: {
           onReady: (data) => {
             sendMessageToFlutter({ event: "onReady", data });
@@ -72,33 +98,5 @@
       });
     };
   </script>
-
-  <script>
-  // function sendMessageToFlutter(data) {
-  //   if (window.flutter_inappwebview && window.flutter_inappwebview.postMessage) {
-  //     window.flutter_inappwebview.postMessage(data);
-  //   } else {
-  //     console.warn("JS bridge not ready");
-  //   }
-  // }
-    //   window.addEventListener("load", () => {
-    //     console.log("Loaded");
-    //   window.startSDK({
-    //     videoToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbnN0aXR1dGlvbklkIjoiNjc1ZWI5NmY1YjE0ZjAwOWFlMWQyYjBjIiwiaWF0IjoxNzUxODk0MzQzLCJleHAiOjE3NTE4OTcwNDN9.qJVF3hX9lWm6NDpwqcHlIlGchTWTFBMpi_EWO-ap7KQ",
-    //     age: 30,
-    //     gender: "male",
-    //     buttonBgColor: "2e8ece",
-    //     buttonTextColor: "ffffff"
-    //   });
-    // });
-
-  // Example usage after page load:
-  window.addEventListener("load", () => {
-    sendMessageToFlutter("SDK page loaded");
-
-    // If you want to auto-start SDK with Flutter config, that comes from Flutter via runJavaScript
-    // So nothing else needed here for now
-  });
-</script>
 </body>
 </html>
